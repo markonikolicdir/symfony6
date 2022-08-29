@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Marko;
+namespace App\Service\Marko;
 
 class BlogService
 {
