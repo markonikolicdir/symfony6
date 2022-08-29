@@ -26,3 +26,8 @@ services:
         arguments:
             $name: 'Marko'
             $surname: 'Nikolic'
+
+    App\EventListener\DeleteBlogListener:
+        tags:
+            - { name: kernel.event_listener, event: delete.blog }
+            - { name: kernel.event_listener, event: delete.blog, method: onDeleteBlogEvent }

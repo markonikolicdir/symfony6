@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Event\DeleteBlogEvent;
 use App\Event\NewBlogEvent;
 use App\Service\Marko\BlogService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,6 +17,8 @@ class TestController extends AbstractController
     {
         $eventDispatcher->dispatch(new NewBlogEvent('Prvi test blog'));
         $eventDispatcher->dispatch(new NewBlogEvent('Drugi test blog'), NewBlogEvent::NAME);
+
+        $eventDispatcher->dispatch(new DeleteBlogEvent('Obrisan blog'), DeleteBlogEvent::NAME);
 
         return $this->json([
             'author' => $blogService->author(),
